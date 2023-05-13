@@ -1,2 +1,2 @@
-# Three.js
-Three.js topic with workshop 
+Workshop uitleg: 
+
