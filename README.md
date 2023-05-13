@@ -1,4 +1,4 @@
-# This repository was used for the class Web topics advanced.  
+# This repository is used for the class Web topics advanced.  
 ## In this repository u can find the following:  
 - Theore Three.js.pptx   
   A powerpoint presentation that was used to explain Three.js   
