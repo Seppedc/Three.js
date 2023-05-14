@@ -3,7 +3,8 @@ import * as CANNON from 'cannon-es';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CannonDebugger from 'cannon-es-debugger';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-
+let boxesVisual = [];
+let boxesPhysical = [];
 
 //ToDo Phase 1
 
@@ -91,7 +92,11 @@ const animate = () => {
 
     //ToDo Phase 6
     
-
+    //Code toevoegen na phase 6
+    // for (let i = 0; i < boxesVisual.length; i++) {
+    //     boxesVisual[i].position.copy(boxesPhysical[i].position);
+    //     boxesVisual[i].quaternion.copy(boxesPhysical[i].quaternion);
+    // }
     //ToDo Phase 7
     
 
@@ -103,5 +108,31 @@ animate();
 
 //code to generate obstacles to drive against to test the workings of your car with physics angine 
 function GenerateFun(){
-
-}
+    const offsetBoxes = new THREE.Vector3(-5,0.5, -20); 
+    for (let i = 0; i < 10; i++) {
+        for (let y = 0; y < 5; y++) {
+            for (let z = 0; z < 2; z++) {
+                const boxGeometryLoop = new THREE.BoxGeometry(1, 1, 1);
+                const boxMaterialLoop = new THREE.MeshNormalMaterial();
+                const test = new THREE.Mesh(boxGeometryLoop, boxMaterialLoop);
+                boxesVisual.push(test);
+                test.position.copy(new THREE.Vector3(i,y,z).add(offsetBoxes));
+                
+                scene.add(test);
+            }
+        }
+    }
+    for (let i = 0; i < 10; i++) {
+        for (let y = 0; y < 5; y++) {
+            for (let z = 0; z < 2; z++) {
+                const boxBodyLoop = new CANNON.Body({
+                    mass: 0.1,
+                    shape: new CANNON.Box(new CANNON.Vec3(0.5, 0.5, 0.5)),
+                });
+                boxBodyLoop.position.set(i-5, y+0.5, z-20);
+                boxesPhysical.push(boxBodyLoop);
+                physicsWorld.addBody(boxBodyLoop);
+            }
+        }
+    }
+};
