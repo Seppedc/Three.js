@@ -92,7 +92,8 @@ Nadat het voertuig is toegevoegd gaan we via user input het voertuig laten beweg
 -	De laatste stap is het linken van de physieke auto die je net hebt gemaakt en hebt laten bewegen met het ingeladen model.  In de animate functie moet je de positie en quaternion van het model gelijkzetten aan die van het physieke model.   
   
 Na al dit lastig werken verdien je wel wat plezier.  
-Voeg de functie GenerateFun() toe aan de code(voor de animate functie) en amuseer u met het bewegen van uw voertuig.  
+Voeg de functie GenerateFun() toe aan de code(voor de animate functie) en in de animate functie moet je code uit commentaar zetten.  
+nu kan u zich  amuseer met het bewegen van uw voertuig.   
   
 # Phase 7  
 Dit is het laatste deel. Wat je nu gaat doen is proberen om de camera de auto te doen volgen. In de animate functie zet je “controls.update();” in commentaar.  
